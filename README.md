@@ -50,7 +50,7 @@ tqdm を使っているデーモン用の
 systemd サービスファイルでは
 
 - Environment="TQDM_DISABLE=1" にする
-- または Environment="TQDM_BAR_FORMAT='{n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]\n'" にする(一例)
+- または Environment="TQDM_BAR_FORMAT='{n_fmt}/{total_fmt}[{elapsed}<{remaining}, {rate_fmt}]\n'" にする(一例)
 
 といいと思う。
 
