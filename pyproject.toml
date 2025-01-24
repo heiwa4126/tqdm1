@@ -1,0 +1,19 @@
+[project]
+name = "tqdm1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+  { name = "Masato Ota", email = "ohtam@nec.com" },
+]
+requires-python = ">=3.12"
+dependencies = [
+  "tqdm>=4.67.1",
+]
+
+[project.scripts]
+tqdm1 = "tqdm1:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

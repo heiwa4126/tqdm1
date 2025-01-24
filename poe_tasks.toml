@@ -1,0 +1,32 @@
+[tasks]
+format.shell = """
+ruff format &&
+# biome format --write . &&
+dprint fmt &&
+textlint --fix "**/*.md"
+"""
+
+uvsync = "uv sync"
+requirements = "uv pip compile pyproject.toml --no-deps -o requirements.txt"
+sync = ["uvsync", "requirements"]
+
+trivy-check.shell = "trivy config . && trivy fs ."
+trivy-license = "trivy fs --scanners license --severity HIGH,CRITICAL ."
+
+e1.shell = "uv run src/tqdm1/ex1.py"
+e1.help = "標準的な tqdm()"
+
+e2.shell = "TQDM_MININTERVAL=2 uv run src/tqdm1/ex1.py"
+e2.help = "2秒に1回更新される tqdm()"
+
+e3.shell = "TQDM_DISABLE=1 uv run src/tqdm1/ex1.py"
+e3.help = "表示されない tqdm()"
+
+e4.shell = "TQDM_ASCII='-*' uv run src/tqdm1/ex1.py"
+e4.help = "プログレスバーの表示を-*に変更"
+
+e5.shell = "TQDM_BAR_FORMAT='{n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]' uv run src/tqdm1/ex1.py"
+e5.help = "プログレスバーなし"
+
+e6.shell = "TQDM_MININTERVAL=2 TQDM_BAR_FORMAT='{n_fmt}/{total_fmt} [{elapsed}<{remaining}, {rate_fmt}]\n' uv run src/tqdm1/ex1.py"
+e6.help = "プログレスバーなし。2秒に1回行出力"
