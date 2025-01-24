@@ -1,2 +1,3 @@
-def main() -> None:
-    print("Hello from tqdm1!")
+from tqdm1.ex1 import main
+
+__all__ = ["main"]
